@@ -1,6 +1,7 @@
 
 
 import java.util.Scanner;
+import java.util.stream.IntStream;
 
 
 /**
@@ -29,24 +30,31 @@ public class ArrayAverage {
 	public static void main(String[] args) {
 		int ArraySize;
 		double average = 0;
-
+		int sum = 0;
 		//Creating a scanner to read input from console
 		Scanner console = new Scanner(System.in);
 		System.out.println("How many ints to average?");
 		ArraySize = console.nextInt();
 		
 		// TODO -- define an array
+		int[] myArray = new int [ArraySize];
 				
 		// TODO -- write a for loop here to ask the user for input.
 
-		//for(something){
-		//
-		//}
+		for(int i=0; i < myArray.length; i++){
+			System.out.print("gimme number: ");
+			myArray[i] = console.nextInt();
+			 sum += myArray[i];
+		}
 		
 		// TODO -- average across the array
-		//average = ???; 
+		//System.out.println(sum);
+		average = IntStream.of(myArray).sum()/ArraySize;  //with IntStream
+		System.out.println("myArray avarage is: " + average);
 		
-		System.out.println(average);
+		average = sum/ArraySize; // with sum calculated in the loop 
+		
+		System.out.println("myArray avarage is: " + average);
 		
 		//Closing the scanner
 		console.close();
