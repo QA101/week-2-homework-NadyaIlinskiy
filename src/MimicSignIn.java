@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -32,7 +33,8 @@ public class MimicSignIn {
 		 *  TODO Check if the arguments is the right length.
 		 *  If not the right length, exit immediately.
 		 */ 
-		if(true) {
+		
+		if(args.length == 3) {
 			String username = args[0];
 			String password = args[1];
 			String email = args[2];
@@ -47,19 +49,29 @@ public class MimicSignIn {
 			 *  You should trim off spaces in-front of or after the string
 			 *  Then compare the username_attempt to username and password_attempt to password
 			 */
-			//for(something){
+			boolean success = false;
+			for(int i=  0; i < MAX_ATTEMPTS && !success; i++){
 				System.out.println("Username:");
-				console.nextLine();
+				username_attempt = console.nextLine().trim();
 				
 				System.out.println("Password:");
-				console.nextLine();
-			//}
+				
+				password_attempt = console.nextLine().trim();
+				
+				success = username_attempt.equals(username) && password_attempt.equals(password);
+					 
+			} 
+			if(!success) {
+				System.out.println("Wrong login or password");
+				console.close();
+				return;
+			}
 			
 			/**
 			 * What is a valid email address?
 			 * 
 			 */
-			if(true) {
+			if(ValidEmail(email)) {
 				System.out.println("You have a valid email address");
 			}
 			else {
@@ -74,21 +86,17 @@ public class MimicSignIn {
 			//I am dead code because my IF statement is always true. <-- FIX ME
 			System.out.println("wrong number of elements");
 		}
-	}
+	}// end main 
 	
 	/**
 	 * This method will take an email string and valid if it has a valid format
 	 * 
-	 * @param email - email string which needs to be valided for cthe correct format
+	 * @param email - email string which needs to be valided for the correct format
 	 * @return - returns true if the email is valid, returns false if it is not valid
 	 */
 	public static boolean ValidEmail(String email) {
-		if (true) {
-			return true;
-		}
-		else {
-			return false;
-		}
+		return email.contains("@") && email.contains(".");
 		
-	}
-}
+	} // end ValidEmail
+}// end class
+
