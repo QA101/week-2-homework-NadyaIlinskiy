@@ -1,5 +1,6 @@
 
 
+import java.util.Arrays;
 import java.util.Scanner;
 import java.util.stream.IntStream;
 
@@ -27,10 +28,20 @@ public class ArrayAverage {
 	 * 
 	 * @param args
 	 */
+	
+	/**
+	 * 	to run from Terminal do this -> from project root: 
+     *    [week-2-homework-NadyaIlinskiy]$ java -cp bin ArrayAverage 
+     *    cp stands for class path ; bin where the executable files are 
+	 *    @author nadya.ilinskaya
+	 */
+	
+	
 	public static void main(String[] args) {
 		int ArraySize;
 		double average = 0;
 		int sum = 0;
+		
 		//Creating a scanner to read input from console
 		Scanner console = new Scanner(System.in);
 		System.out.println("How many ints to average?");
@@ -41,11 +52,28 @@ public class ArrayAverage {
 				
 		// TODO -- write a for loop here to ask the user for input.
 
+		
+		
 		for(int i=0; i < myArray.length; i++){
 			System.out.print("gimme number: ");
 			myArray[i] = console.nextInt();
 			 sum += myArray[i];
 		}
+/////////////////////////////////////////	ADDED IN CLASS  ///////////////////////////////////////////////
+		
+		
+//		//passing args from main arguments to print ==> we can use that here instead of Scanner
+//		// when run from Terminal - add args : 
+//				System.out.println("Printing argument from main method" + Arrays.toString(args)); 
+//				int count = 0;
+//	 // adding arguments into myArray from args=> 	java -cp bin ArrayAverage 123 // 123 <-args
+//				for (String s: args) {
+//					myArray[count] = Integer.parseInt(s);// приводит строку к инту
+//				}
+//		
+		
+//////////////////////////////////////////////END OF ADDED IN CLASS //////////////////////////////////////////
+				
 		
 		// TODO -- average across the array
 		//System.out.println(sum);
@@ -61,3 +89,4 @@ public class ArrayAverage {
 	}
 
 }
+

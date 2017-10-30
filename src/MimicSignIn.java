@@ -55,8 +55,9 @@ public class MimicSignIn {
 				username_attempt = console.nextLine().trim();
 				
 				System.out.println("Password:");
-				
 				password_attempt = console.nextLine().trim();
+				
+			//	System.out.printf("'%s'", password_attempt);
 				
 				success = username_attempt.equals(username) && password_attempt.equals(password);
 					 
